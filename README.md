@@ -37,7 +37,19 @@ DevFlow addresses these problems by making every development iteration explicit,
 Every development iteration follows the same workflow.
 
 ```text
-Intent　->　Interview　->　Objective　->　Task　->　Execution　->　Evidence　->　Status
+Intent
+    ->
+Interview
+    ->
+Objective
+    ->
+Task
+    ->
+Execution
+    ->
+Evidence
+    ->
+Status
 ```
 
 The workflow begins when the user expresses an intent through a prompt, a request, or a pre-written intent file. Each artifact has a single responsibility and becomes part of the project's persistent state.
@@ -150,7 +162,7 @@ Typical project context includes:
 
 Project Context is independent from Intent, Objective, and Tasks, allowing projects to be rebuilt, refactored, migrated, or handed across models without replaying previous conversations.
 
-Context files should be created as empty template files during initialization.
+Context files should be initialized as starter placeholder files with guidance sections and stable headings, rather than raw empty files.
 
 ---
 
@@ -189,6 +201,17 @@ AI should reconstruct context from project artifacts instead of chat history.
 ## Model-Readable Collaboration
 
 Artifacts should be readable and usable across different models, tools, and sessions without relying on hidden memory.
+
+## Placeholder-Driven Authoring
+
+Starter files should guide writing instead of remaining blank whenever the file is expected to be filled by humans or AI.
+
+Reusable DevFlow files should prefer:
+
+- purpose statements
+- stable headings
+- explicit placeholders
+- fill-in instructions
 
 ---
 
@@ -230,11 +253,97 @@ CLAUDE.md
 
 Notes:
 
-- `context/` files should be created as empty template files during initialization.
+- `context/` files should exist as placeholder documents with writing guidance.
 - `roles/`, `skills/`, and `templates/` are official DevFlow structure.
 - `memory.md` and `status.md` are execution control artifacts.
 - `AGENTS.md` and `CLAUDE.md` are repository-level bootstrap control files.
 - `status.md` should start from a clean bootstrap state.
+
+---
+
+# Getting Started
+
+Use this section for the shortest path from download to first DevFlow iteration.
+
+## 1. Download The Repository
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd devflow
+```
+
+Or download the repository as a ZIP and extract it locally.
+
+## 2. Read The Bootstrap Files
+
+Before using DevFlow, read these files in order:
+
+1. `README.md`
+2. `AGENTS.md`
+3. `CLAUDE.md` (optional)
+4. `.devflow/status.md`
+5. `.devflow/memory.md`
+
+## 3. Fill Project Basics
+
+When starting a real project, fill the project description placeholders in:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+
+Then fill project-specific context as it becomes known:
+
+- `.devflow/context/architecture.md`
+- `.devflow/context/stack.md`
+- `.devflow/context/dependencies.md`
+- `.devflow/context/conventions.md`
+- `.devflow/context/repo-structure.md`
+
+## 4. Start The First Iteration
+
+Create artifacts in this order:
+
+1. intent
+2. interview
+3. objective
+4. task
+5. execution
+6. evidence
+7. status update
+
+Use the templates in `.devflow/templates/` whenever a matching template exists.
+
+## 5. Read The Full Guide
+
+For a step-by-step setup and first-iteration walkthrough, see [docs/getting-started.md](docs/getting-started.md).
+
+---
+
+# Starter Templates
+
+A DevFlow starter repository should include reusable templates for the main workflow artifacts.
+
+Recommended templates:
+
+```text
+.devflow/templates/intent-template.md
+.devflow/templates/interview-template.md
+.devflow/templates/objective-template.md
+.devflow/templates/task-template.md
+.devflow/templates/evidence-template.md
+.devflow/templates/status-template.md      # optional but recommended
+.devflow/templates/memory-template.md      # optional but recommended
+```
+
+Templates should provide:
+
+- artifact purpose
+- naming guidance
+- stable sections
+- explicit placeholders
+- enough structure for a fresh AI session to fill correctly
 
 ---
 
