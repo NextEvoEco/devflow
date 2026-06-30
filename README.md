@@ -261,6 +261,25 @@ Notes:
 
 ---
 
+# Examples
+
+The following repository demonstrates DevFlow in practice on a real project.
+
+## Quiz Bank
+
+[devflow-example-quiz-bank](https://github.com/NextEvoEco/devflow-example-quiz-bank) — A reference implementation that shows how DevFlow organizes an AI-assisted project end to end.
+
+The project builds a question bank and quiz builder application using Python, Flask, and SQLite. It demonstrates how intent, interview, objective, task, and evidence artifacts accumulate across multiple development iterations, and how a fresh AI session can resume work by reading `.devflow/` files instead of replaying conversations.
+
+What to look at:
+
+- `.devflow/status.md` — runtime state and current resume point
+- `.devflow/memory.md` — durable decisions and constraints
+- `.devflow/intent/`, `.devflow/objective/`, `.devflow/tasks/` — a real artifact trail from idea to implementation
+- `.devflow/context/` — project-specific knowledge kept separate from workflow files
+
+---
+
 # Getting Started
 
 Use this section for the shortest path from download to first DevFlow iteration.
